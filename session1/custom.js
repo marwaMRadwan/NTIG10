@@ -107,79 +107,170 @@ convert f => c
 // }
 
 // console.log(Object.values(user))
-let posts = [
-    {
-    userId: 1,
-    id: 1,
-    title: "delectus aut autem",
-    completed: false
-    },
-    {
-    userId: 1,
-    id: 2,
-    title: "quis ut nam facilis et officia qui",
-    completed: false
-    },
-    {
-    userId: 1,
-    id: 3,
-    title: "fugiat veniam minus",
-    completed: false
-    },
-    {
-    userId: 1,
-    id: 4,
-    title: "et porro tempora",
-    completed: true
-    },
-    {
-    userId: 1,
-    id: 5,
-    title: "laboriosam mollitia et enim quasi adipisci quia provident illum",
-    completed: false
-    },
-    {
-    userId: 1,
-    id: 6,
-    title: "qui ullam ratione quibusdam voluptatem quia omnis",
-    completed: false
-    },
-    {
-    userId: 1,
-    id: 7,
-    title: "illo expedita consequatur quia in",
-    completed: false
-    },
-    {
-    userId: 1,
-    id: 8,
-    title: "quo adipisci enim quam ut ab",
-    completed: true
-    },
-    {
-    userId: 1,
-    id: 9,
-    title: "molestiae perspiciatis ipsa",
-    completed: false
-    },
-    {
-    userId: 1,
-    id: 10,
-    title: "illo est ratione doloremque quia maiores aut",
-    completed: true
-    }
-    ]
+// let posts = [
+//     {
+//     userId: 1,
+//     id: 1,
+//     title: "delectus aut autem",
+//     completed: false
+//     },
+//     {
+//     userId: 1,
+//     id: 2,
+//     title: "quis ut nam facilis et officia qui",
+//     completed: false
+//     },
+//     {
+//     userId: 1,
+//     id: 3,
+//     title: "fugiat veniam minus",
+//     completed: false
+//     },
+//     {
+//     userId: 1,
+//     id: 4,
+//     title: "et porro tempora",
+//     completed: true
+//     },
+//     {
+//     userId: 1,
+//     id: 5,
+//     title: "laboriosam mollitia et enim quasi adipisci quia provident illum",
+//     completed: false
+//     },
+//     {
+//     userId: 1,
+//     id: 6,
+//     title: "qui ullam ratione quibusdam voluptatem quia omnis",
+//     completed: false
+//     },
+//     {
+//     userId: 1,
+//     id: 7,
+//     title: "illo expedita consequatur quia in",
+//     completed: false
+//     },
+//     {
+//     userId: 1,
+//     id: 8,
+//     title: "quo adipisci enim quam ut ab",
+//     completed: true
+//     },
+//     {
+//     userId: 1,
+//     id: 9,
+//     title: "molestiae perspiciatis ipsa",
+//     completed: false
+//     },
+//     {
+//     userId: 1,
+//     id: 10,
+//     title: "illo est ratione doloremque quia maiores aut",
+//     completed: true
+//     }
+//     ]
+// let keys = [ "userId", "id", "title", "completed" ]
+
+// posts.forEach( (element, index) => {
+//     console.log(`post ${index+1} :`)
+//     Object.keys(posts[0]).forEach(k=>{
+//         console.log(` ${k} => ${element[k]}`)
+//     })    
+// });
+// let myFun = function(val1, val2){
+//     let result = {
+//         add: val1+val2,
+//         sub: val1-val2
+//     }
+//     return result
+// }
 
 
 
+// let x = 5;
+
+// let myFun = function(x){
+//     x=15
+// }
+
+// myFun(x)
+// console.log(x)
+
+// user={name:"marwa", age:36}
+
+// let myFun1= function(u){
+//     u.name="mazen"
+// }
+
+// myFun1(user)
+// console.log(user)
 
 
 
+// let z =5
+// let fun = function(y){ 
+//     y=9 
+//     console.log(z)
+// }
+// fun(z)
+// console.log(y)
 
 
 
+// x=[1,2,3]
+// function test(val){
+//     val[1]= 9
+// }
+// test(x)
+
+// console.log(x)
+
+// emp = [
+// {name:"mazen", salary:5000},
+// {name:"marwa", salary:3000},
+// {name:"omar", salary:8000}
+// ]
+
+// function updateSalary(empName){
+//     empName.salary += empName.salary*0.1
+//     empName.test="test test"
+// }
+
+// emp.forEach(singleEmp => {
+//    updateSalary(singleEmp) 
+// });
+
+// console.log(emp)
 
 
+// let  user = {
+//     name:"marwa",
+//     bYear: 1985,
+//     getAge: function(year){
+//         age=year-this.bYear
+//         return age
+//     } 
+// }
+
+// console.log( user.getAge(2021) )
+
+/*
+users = []
+users => {name, age, job}
+addUser => name, age, job => push users
+show all users => print users
+*/
+let user = [];
+let x = prompt("enter your name");
+    let y = prompt("enter your age");
+    let z = prompt("enter your job");
+    
+function addUser (name, age, job) {
+    user.push({name:name, age:age, job:job});
+}
+addUser(x,y,z);
+
+console.log(user);
 
 
 
