@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+<input id="x">
+    <script>
+        //  #id .class  tag
+        d = document.querySelector('p')
+        console.log(d);
+        d.innerHTML = "<h3>hi from js</h3>"
+        d.classList = "x y z"
+        // d.remove()
+        let li = document.createElement('li')
+        li.innerText = "hello"
+        d.appendChild(li)
+        d.addEventListener('click', function(e){
+            alert('hello')
+        })
+
+input = document.querySelector('#x')
+input.addEventListenkeyuper('', function(e){
+    if (e.key === 'Enter'){
+        console.log(e.target.value)
+        d.innerText= e.target.value
+    }
+})
+
+    </script>
+</body>
+</html>
+
+

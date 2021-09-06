@@ -1,0 +1,7 @@
+tasks ==> [ ]
+
+task ===> { taskTitle:t1, taskContent: c1}
+
+tasks.push(task)
+
+table page => loop array
