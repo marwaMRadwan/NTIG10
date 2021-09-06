@@ -5,3 +5,24 @@ task ===> { taskTitle:t1, taskContent: c1}
 tasks.push(task)
 
 table page => loop array
+
+
+input name
+input s1
+input s2
+input s3
+
+{
+    name: name,
+    subjects : [ s1, s2, s3 ]
+}
+
+
+promises
+async await
+then catch
+
+node setup
+fs 
+create modules
+yargs

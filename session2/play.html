@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
         })
 
 input = document.querySelector('#x')
-input.addEventListenkeyuper('', function(e){
+input.addEventListerr('keyup', function(e){
     if (e.key === 'Enter'){
         console.log(e.target.value)
         d.innerText= e.target.value
@@ -39,4 +39,62 @@ input.addEventListenkeyuper('', function(e){
 </body>
 </html>
 
+ -->
 
+
+
+
+
+ <!-- <html>
+     <body>
+         <form>
+            <input name="name">
+            <input name="sub1">
+            <input name="sub2">
+            <input name="sub3">
+            <button >add</button>
+         </form>
+         <ul>
+
+         </ul>
+         <script>
+             let data = JSON.parse(localStorage.getItem('myData')) ||[]
+             drawTable(data)
+             let f = document.querySelector('form')
+             f.addEventListener('submit', function(e){
+                e.preventDefault() 
+                let stu = {
+                     name: this.elements.name.value,
+                     subjects : [
+                     {sub : this.elements.sub1.value},
+                     {sub : this.elements.sub2.value},
+                     {sub : this.elements.sub3.value},
+                     ]
+                 }
+                 console.log(stu)
+                 data.push(stu)
+                 localStorage.setItem("myData", JSON.stringify(data))
+                 drawTable(data)
+             })
+
+             function drawTable(data){
+                 let myContainer = document.querySelector('ul')
+                 myContainer.innerHTML=""
+                 data.forEach(element => {
+                    li= document.createElement('li')
+                 li.textContent = element.name
+                 myContainer.appendChild(li)
+                 element.subjects.forEach(el=>{
+                     p= document.createElement('p')
+                     p.innerText = el.sub
+                     myContainer.appendChild(p)
+                 })
+                     
+                 });
+             }
+         </script>
+     </body>
+ </html>
+
+
+ -->
