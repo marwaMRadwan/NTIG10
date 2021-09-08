@@ -2,7 +2,6 @@
 const fs = require('fs')
 const chalk = require('chalk')
 const validator = require('validator')
-
 //read data from json file
 readDataFromJsonFile = () =>{
     let data
@@ -27,7 +26,8 @@ writeDataToJsonFile = (data)=>{
 //add new task
 addTask = (data) => {
     let tasks = readDataFromJsonFile()
-    //////
+    let i = searchTaskIndex(tasks, 'title', data.title )
+    if(i!=-1) return console.log(chalk.red('title used before'))
     let task = {
         status: false,
         id : parseInt((Date.now()) * Math.random()),
@@ -37,7 +37,6 @@ addTask = (data) => {
     writeDataToJsonFile(tasks)
     console.log(chalk.green(`data inserted successfuly and you task id is ${task.id}`))
 }
-
 //show All Tasks 
 showAll = () =>{
     tasks = readDataFromJsonFile()
@@ -45,7 +44,6 @@ showAll = () =>{
         console.table(task)
     })
 }
-
 //search task id, title, type
 filterTasks = (key, seachVal) =>{
     let tasks = readDataFromJsonFile()
@@ -55,9 +53,9 @@ filterTasks = (key, seachVal) =>{
     return result
 }
 // get item index by id
-searchTaskIndex = (tasks, searchVal) =>{
+searchTaskIndex = (tasks,key, searchVal) =>{
     let result = tasks.findIndex(task=>{
-        return searchVal == task.id
+        return searchVal == task[key]
     })
     return result
 }
@@ -82,5 +80,4 @@ deleteTask = (taskId)=>{
     writeDataToJsonFile(tasks)
     console.log(chalk.green('task deleted'))
 }
-
 module.exports = { addTask, showAll, filterTasks, deleteTask }
