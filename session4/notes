@@ -1,0 +1,12 @@
+create => tasks.json and add [] of tasks => done
+each task has  => done
+search for task by id, name, type
+show all tasks => done
+get tasks due date > today date
+delete task
+edit task
+change status
+
+npm init --y
+
+packages => fs, validator, chalk
