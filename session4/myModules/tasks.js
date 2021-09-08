@@ -2,7 +2,6 @@
 const fs = require('fs')
 const chalk = require('chalk')
 const validator = require('validator')
-const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require('constants')
 
 //read data from json file
 readDataFromJsonFile = () =>{
@@ -28,6 +27,7 @@ writeDataToJsonFile = (data)=>{
 //add new task
 addTask = (data) => {
     let tasks = readDataFromJsonFile()
+    //////
     let task = {
         status: false,
         id : parseInt((Date.now()) * Math.random()),
@@ -62,7 +62,16 @@ searchTaskIndex = (tasks, searchVal) =>{
     return result
 }
 //edit
-
+editTask = (taskId, newData)=>{
+    let tasks = readDataFromJsonFile()
+    let taskIndex = searchTaskIndex(tasks, taskId)
+    if(taskIndex==-1) return console.log(chalk.red('task not found'))
+    for(n in newData){
+        tasks[taskIndex][n] = newData[n]
+    }
+    writeDataToJsonFile(tasks)
+    console.log(chalk.green('task Edited'))
+}
 
 //delete
 deleteTask = (taskId)=>{
@@ -73,8 +82,5 @@ deleteTask = (taskId)=>{
     writeDataToJsonFile(tasks)
     console.log(chalk.green('task deleted'))
 }
-module.exports = {
-    addTask, showAll, filterTasks
-}
 
-
+module.exports = { addTask, showAll, filterTasks, deleteTask }
