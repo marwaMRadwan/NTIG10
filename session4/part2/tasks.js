@@ -59,8 +59,9 @@ searchTaskIndex = (tasks,key, searchVal) =>{
 }
 //edit
 editTask = (taskId, newData)=>{
+    console.log(newData)
     let tasks = readDataFromJsonFile()
-    let taskIndex = searchTaskIndex(tasks, taskId)
+    let taskIndex = searchTaskIndex(tasks,'id', taskId)
     if(taskIndex==-1) return console.log(chalk.red('task not found'))
     for(n in newData){
         tasks[taskIndex][n] = newData[n]
@@ -71,8 +72,11 @@ editTask = (taskId, newData)=>{
 
 //delete
 deleteTask = (taskId)=>{
+    console.log(taskId)
+
     let tasks = readDataFromJsonFile()
-    let taskIndex = searchTaskIndex(tasks, taskId)
+    let taskIndex = searchTaskIndex(tasks,'id', taskId)
+    console.log(taskIndex);
     if(taskIndex==-1) return console.log(chalk.red('task not found'))
     tasks.splice( taskIndex , 1 )
     writeDataToJsonFile(tasks)
@@ -82,7 +86,7 @@ deleteTask = (taskId)=>{
 //change Status
 changeTaskStatus = (taskId)=>{
     let tasks = readDataFromJsonFile()
-    let taskIndex = searchTaskIndex(tasks, taskId)
+    let taskIndex = searchTaskIndex(tasks,'id', taskId)
     if(taskIndex==-1) return console.log(chalk.red('task not found'))
     tasks[taskIndex].status = !tasks[taskIndex].status
     writeDataToJsonFile(tasks)

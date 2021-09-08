@@ -1,0 +1,5 @@
+student => studentId, name, className [a,b,c] , subjects = [ {subName:"math", subGrade:50},.....]  
+
+add new student 
+
+add subject to student

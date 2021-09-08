@@ -1,0 +1,27 @@
+student = {
+    id:1,
+    name:x
+    class:a,
+    sub: [
+        {subName:a, grade:10},
+        ....
+    ]
+}
+student => id, name, class in[a,b,c ]
+
+add subject =>{subName:x, subgrage:50},....
+
+add new student
+add subject to student
+get all students
+get single student by student id
+get students total degrees
+
+
+
+next:
+request
+http
+express 
+routes
+hbs files
