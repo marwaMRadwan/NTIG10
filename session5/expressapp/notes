@@ -1,0 +1,12 @@
+static => css, js, images
+html => public
+resources =>  views ==> view, layout
+controller => logic
+models => database
+
+
+mvc 
+
+
+==> static path
+==> view engine (template lang)
