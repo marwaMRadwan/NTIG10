@@ -39,7 +39,8 @@ const getAll = (req,res) => {
     let allUsers = readJsonFile()
     res.render('all',{
         pageTitle:"all Users",
-        data:allUsers
+        data:allUsers,
+        isEmpty:allUsers.length==0? true: false
     })
 }
 searchUser = (allUsers, id) => {
@@ -50,10 +51,6 @@ searchUser = (allUsers, id) => {
 }
 const getSingle = (req,res) => {
     let allUser = readJsonFile()
-    // let user = allUser.find(ele=>{
-    //     return ele.id==req.params.id
-    // })
-    // res.send(user)
     let userIndex = searchUser(allUser, req.params.id)
     if(userIndex==-1) res.render('err404', {
         pageTitle:"User Not Found",
@@ -66,11 +63,45 @@ const getSingle = (req,res) => {
         })    
     }
 }
-const editUser = (req,res) => {
-    res.render('edit',{
-        pageTitle:"Edit User"
+const deleteUser = (req,res) => {
+    let allUser = readJsonFile()
+    let userIndex = searchUser(allUser, req.params.id)
+    if(userIndex==-1) res.render('err404', {
+        pageTitle:"User Not Found",
+        err: `No user With id ${req.params.id}`
     })
+    else{
+        allUser.splice(userIndex,1)
+        saveJsonFile(allUser)
+        res.redirect('/')    
+    }
 }
+
+const editUser = (req,res) => {
+    let allUser = readJsonFile()
+    let userIndex = searchUser(allUser, req.params.id)
+    if(userIndex==-1) res.render('err404', {
+        pageTitle:"User Not Found",
+        err: `No user With id ${req.params.id}`
+    })
+    else{
+        res.render('edit',{
+            pageTitle:"Edit User",
+            user: allUser[userIndex]
+        })    
+    }
+}
+const updateUser = (req,res) => {
+    let allUser = readJsonFile()
+    let userIndex = searchUser(allUser, req.params.id)
+    allUser[userIndex].name= req.body.name
+    allUser[userIndex].age= req.body.age
+    allUser[userIndex].email= req.body.email
+    allUser[userIndex].address= req.body.address
+    saveJsonFile(allUser)
+    res.redirect('/')
+}
+
 const err404 = (req,res)=>{
     res.render('err404', {
         pageTitle:"Error Page",
@@ -78,5 +109,5 @@ const err404 = (req,res)=>{
     })
 }
 module.exports = {
-    addUser, getAll, getSingle, editUser, saveUser, err404
+    addUser, getAll, getSingle, editUser, saveUser, err404, deleteUser, updateUser
 }
