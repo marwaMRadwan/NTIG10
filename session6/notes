@@ -1,0 +1,10 @@
+hbs (users app)
+    - each user (name, email, age, address)
+    - users.json holds all users
+    - add form (get, post)
+    - edit form
+    - show all users
+    - show single user
+    - delete user
+
+- routes , controller 
