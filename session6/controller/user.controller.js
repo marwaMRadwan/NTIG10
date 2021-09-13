@@ -1,5 +1,16 @@
-const test = (req,res) => res.send('test from controller')
 
+const getAll = (req,res) => {
+    res.render('all')
+}
+const getSingle = (req,res) => {
+    res.render('single')
+}
+const editUser = (req,res) => {
+    res.render('edit')
+}
+const addUser = (req,res) => {
+    res.render('add')
+}
 module.exports = {
-    test
+    addUser, getAll, getSingle, editUser
 }
