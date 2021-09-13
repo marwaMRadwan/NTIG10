@@ -4,48 +4,23 @@
     <table class="table table-stripped">
         <thead>
             <tr>
-                <th>#</th>
+                <th>id</th>
                 <th>name</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
+{{#each data}}
             <tr>
-                <td>1</td>
-                <td>marwa</td>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
                 <td>
-                    <a href="single" class="btn btn-primary m-1">show single</a>
-                    <a href="editUser" class="btn btn-warning m-1">Edit</a>
-                    <a href="del" class="btn btn-danger m-1">Delete</a>
+                    <a href="single/{{this.id}}" class="btn btn-primary m-1">show single</a>
+                    <a href="editUser/{{this.id}}" class="btn btn-warning m-1">Edit</a>
+                    <a href="del/{{this.id}}" class="btn btn-danger m-1">Delete</a>
                 </td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>marwa</td>
-                <td>
-                    <a href="single" class="btn btn-primary m-1">show single</a>
-                    <a href="editUser" class="btn btn-warning m-1">Edit</a>
-                    <a href="del" class="btn btn-danger m-1">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>marwa</td>
-                <td>
-                    <a href="single" class="btn btn-primary m-1">show single</a>
-                    <a href="editUser" class="btn btn-warning m-1">Edit</a>
-                    <a href="del" class="btn btn-danger m-1">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>marwa</td>
-                <td>
-                    <a href="single" class="btn btn-primary m-1">show single</a>
-                    <a href="editUser" class="btn btn-warning m-1">Edit</a>
-                    <a href="del" class="btn btn-danger m-1">Delete</a>
-                </td>
-            </tr>
+{{/each}}
         </tbody>
     </table>
 </section>
