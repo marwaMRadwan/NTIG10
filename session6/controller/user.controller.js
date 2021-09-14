@@ -108,6 +108,4 @@ const err404 = (req,res)=>{
         err: "not found"
     })
 }
-module.exports = {
-    addUser, getAll, getSingle, editUser, saveUser, err404, deleteUser, updateUser
-}
+module.exports = { addUser, getAll, getSingle, editUser, saveUser, err404, deleteUser, updateUser }

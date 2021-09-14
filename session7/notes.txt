@@ -1,0 +1,9 @@
+customer has name, balance, accNum, status
+
+search for customer
+add customer
+show all customers
+activate customer
+add balance
+withdraw from balance
+update customer data
