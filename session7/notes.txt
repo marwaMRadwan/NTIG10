@@ -1,3 +1,17 @@
+
+npm i dotenv
+
+frontend => views, layouts => test.hbs nav.hbs
+controller=>
+    customer control
+routes =>
+    customer.routes.js => test route
+src =>
+    app.js => packages (express, hbs, fs, path, dot env)
+index.js => run app (app.js, .env)
+.env => port
+
+
 customer has name, balance, accNum, status
 
 search for customer
@@ -7,3 +21,4 @@ activate customer
 add balance
 withdraw from balance
 update customer data
+
