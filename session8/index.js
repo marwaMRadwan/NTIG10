@@ -32,13 +32,29 @@ MongoClient.connect(dbURL, {}, (err, client)=>{
     //     }
     // )
 
-db.collection('students').find().toArray((err,res)=>{
-    console.log(res)
+// db.collection('students').find({name:"marwa", age:36}).toArray((err,res)=>{
+//     console.log(res)
+// })
+
+// db.collection('students').findOne(
+//     {_id:new ObjectId("6141ae378f578fe45e7bdaaf")} ,
+//     ( (error, res) => { console.log(res)} ) 
+//     )
+
+// db.collection('students').updateMany( 
+//     {name:"omar"},
+//     { $inc: {age:1} }
+//     )
+//     .then((res)=>{
+//         console.log(res)
+//     })
+//     .catch(e=> console.log(e))
+
+
+db.collection('students').deleteMany( {name:"mazen"} )
+.then( res => { console.log(res) })
+.catch( e => console.log(e))
+
 })
 
-db.collection('students').findOne(
-    {_id:new ObjectId("6141ae378f578fe45e7bdaaf")} ,
-    ( (error, res) => { console.log(res)} ) 
-    )
 
-})
