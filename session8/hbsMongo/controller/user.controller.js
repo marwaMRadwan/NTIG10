@@ -1,3 +1,4 @@
+const  ObjectId  = require('mongodb').ObjectId
 const dbCon = require('../models/dbConnection')
 
 const addUser = (req,res) => {
@@ -32,31 +33,29 @@ const getAll = (req,res) => {
     })
 }
 const getSingle = (req,res) => {
-    // find in db
-
-    if(userIndex==-1) res.render('err404', {
-        pageTitle:"User Not Found",
-        err: `No user With id ${req.params.id}`
+    dbCon((err, db)=>{
+        if(err) res.send(err)
+        db.collection('user').findOne({_id: new ObjectId(req.params.id)}, (e, data)=>{
+            if(e) res.send(e) 
+            if(!data) res.render('err404', {
+                pageTitle:"User Not Found",
+                err: `No user With id ${req.params.id}`
+            })
+            res.render('single',{
+                pageTitle:"Single User",
+                user: data
+            })    
+    
+        })
     })
-    else{
-        res.render('single',{
-            pageTitle:"Single User",
-            user: allUser[userIndex]
-        })    
-    }
 }
 const deleteUser = (req,res) => {
-    //delete from db
-    
-    if(userIndex==-1) res.render('err404', {
-        pageTitle:"User Not Found",
-        err: `No user With id ${req.params.id}`
+    dbCon((error, db)=>{
+        if(error) res.send(error)
+        db.collection('user').deleteOne({_id: new ObjectId(req.params.id)})
+        .then(()=> res.redirect('/'))
+        .catch(e=> res.send(e))
     })
-    else{
-        allUser.splice(userIndex,1)
-        saveJsonFile(allUser)
-        res.redirect('/')    
-    }
 }
 
 const editUser = (req,res) => {
