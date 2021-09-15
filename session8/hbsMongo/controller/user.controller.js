@@ -59,27 +59,32 @@ const deleteUser = (req,res) => {
 }
 
 const editUser = (req,res) => {
-  //edit in db
-
-    if(userIndex==-1) res.render('err404', {
-        pageTitle:"User Not Found",
-        err: `No user With id ${req.params.id}`
+    dbCon((err, db)=>{
+        if(err) res.send(err)
+        db.collection('user').findOne({_id: new ObjectId(req.params.id)}, (e, data)=>{
+            if(e) res.send(e) 
+            if(!data) res.render('err404', {
+                pageTitle:"User Not Found",
+                err: `No user With id ${req.params.id}`
+            })
+            res.render('edit',{
+                pageTitle:"Single User",
+                user: data
+            })    
+    
+        })
     })
-    else{
-        res.render('edit',{
-            pageTitle:"Edit User",
-            user: allUser[userIndex]
-        })    
-    }
 }
 const updateUser = (req,res) => {
-    let allUser = readJsonFile()
-    let userIndex = searchUser(allUser, req.params.id)
-    allUser[userIndex].name= req.body.name
-    allUser[userIndex].age= req.body.age
-    allUser[userIndex].email= req.body.email
-    allUser[userIndex].address= req.body.address
-    saveJsonFile(allUser)
+    dbCon((error, db)=>{
+        if(error) res.send(error)
+        db.collection('user').updateOne(
+            {_id: new ObjectId(req.params.id)},
+            {$set: req.body}
+        )
+        .then(()=> res.redirect('/'))
+        .catch((e)=>res.send(e))
+    })
     res.redirect('/')
 }
 
