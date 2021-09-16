@@ -1,0 +1,11 @@
+book
+ - name
+ - author
+ - cat (web, mobile, desktop)
+ - number of pages (min 500)
+
+add book
+edit book
+del book
+get all books
+show single book
