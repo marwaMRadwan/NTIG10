@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+const bcrypt = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -29,9 +30,20 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        match :/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.\]).{8,32}$/
+        // match :/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.\]).{8,32}$/
     }, 
-    // addresses :[ ], 
+    addresses :[
+        {
+            addrType:{
+                type:String,
+                trim:true
+            },
+            addrDetails:{
+                type:String,
+                trim:true
+            }
+        }
+     ], 
     age:{
         type:Number,
         validate(value){
@@ -49,6 +61,13 @@ const userSchema = new mongoose.Schema({
 }, 
 {timestamps:true}
 )
+
+userSchema.pre('save', async function(){
+    const user = this
+    if(user.isModified('password')){
+        user.password = await bcrypt.hash(user.password, 12 )
+    }
+})
 
 const User = mongoose.model('User', userSchema)
 
