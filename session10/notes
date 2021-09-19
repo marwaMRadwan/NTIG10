@@ -1,0 +1,20 @@
+user
+    - name, email, phone, password, addresses => [ ], age, image, status
+    functions:
+    --> password must stored in encrypted way
+    --> mark logged in users
+        - register
+        - login
+        - logout
+        - profile
+        - edit profile
+        - deactivate 
+        - activate
+
+posts
+    - content, file, type (image, video, txt),  user, comments => [{ user: , details: }], likes => [{ user }]
+    functions:
+        - add post => logged users only
+        - show all posts
+        - add comment
+        - like or dislike post
