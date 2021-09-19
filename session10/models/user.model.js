@@ -62,6 +62,15 @@ const userSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
+//handle response
+userSchema.methods.toJSON = function(){
+    const user = this.toObject()
+    delete user.password
+    delete user.__v
+    return user
+}
+
+// encrypt password
 userSchema.pre('save', async function(){
     const user = this
     if(user.isModified('password')){
