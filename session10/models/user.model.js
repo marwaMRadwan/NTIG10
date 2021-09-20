@@ -57,7 +57,8 @@ const userSchema = new mongoose.Schema({
     status:{
         type:Boolean,
         default: false
-    }
+    },
+    tokens:[ { token: {type:String, required:true} } ]
 }, 
 {timestamps:true}
 )
@@ -86,7 +87,15 @@ userSchema.statics.loginUser = async(email, password) => {
     if(!isValidPass) throw new Error('invalid password')
     return user
 }
-
+const jwt = require('jsonwebtoken')
+//generate token
+userSchema.methods.generateToken = async function(){
+    const user = this
+    const token = jwt.sign({_id:user._id}, process.env.JWTKEY)
+    user.tokens = user.tokens.concat({token})
+    await user.save()
+    return token
+}
 const User = mongoose.model('User', userSchema)
 
 module.exports = User
