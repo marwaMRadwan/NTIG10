@@ -25,7 +25,6 @@ const auth = async(req, res, next)=>{
             message:"unAuthorized"
         })
     }
-    //next()
 }
 
 module.exports = auth
