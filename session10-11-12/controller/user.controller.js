@@ -75,6 +75,9 @@ const logOutAll = async(req,res)=>{
 const me = async(req,res)=>{ res.send(req.user) }
 
 const addPImg = async(req, res)=>{
-    res.status(200).send({data:'uploaded'})
+
+    req.user.image = req.file.path.replace('\\', '/')
+    await req.user.save()
+    res.status(200).send(req.user)
 }
 module.exports = { register, addAddr, login, logOut, logOutAll, me, addPImg}
