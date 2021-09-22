@@ -1,0 +1,50 @@
+npm install typescript -g --save-dev
+
+                                        any
+union              primitive                  object            intersection
+                    number => enum              class
+                    bigInt                      interface
+                    boolean                     function
+                    string                      constr
+                    symbol                      array => tuple
+
+
+                            void
+                            null
+                            undefined
+
+
+object based lang => oop
+object, function  => class
+
+
+
+
+
+
+student => name, address, grades
+teacher => name, address, salary
+
+
+person => name, address 
+
+student extends peron => + grades
+
+teacher extends person => + salary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
