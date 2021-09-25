@@ -27,7 +27,11 @@
 
 </section> -->
 
-
+<section class="container">
+    <li *ngFor="let item of myData" [routerLink]="item.id">
+        {{item.title}}
+    </li>
+</section>
 
 
 

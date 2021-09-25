@@ -5,7 +5,7 @@ import { SingleserviceComponent } from './pages/singleservice/singleservice.comp
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
-  {path:"service", component:SingleserviceComponent}
+  {path:":id", component:SingleserviceComponent}
 ];
 
 @NgModule({

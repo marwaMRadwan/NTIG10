@@ -10,4 +10,8 @@ export class DataService {
   getAllPosts(): Observable<any>{
     return this._http.get('https://jsonplaceholder.typicode.com/posts')
   }
+
+  getSinglePost(id:any): Observable<any>{
+    return this._http.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+  }
 }

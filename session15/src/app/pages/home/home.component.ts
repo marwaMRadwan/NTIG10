@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service'
+import { DataService } from 'src/app/services/data.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._data.getAllPosts().subscribe(data=>{
-      console.log(data)
+      // console.log(data)
+      this.myData = data
     })
   }
 // changeStatus(){
