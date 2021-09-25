@@ -1,0 +1,15 @@
+home page => 
+        navbar
+        image
+        cards => singleService
+        contact form
+        footer
+
+
+singleService => 
+        navbar
+        id singleService
+        footer
+
+
+ng g c pages/x

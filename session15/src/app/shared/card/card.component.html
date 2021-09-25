@@ -1,0 +1,11 @@
+<section class="container my-3">
+    <div class="row">
+        <div class="col-4" *ngFor="let img of images">
+            <div class="m-2 border border-2">
+                <img class="img-fluid" [src]="img.url">
+                <hr>
+                <p>{{img.title}}</p>
+            </div>
+        </div>
+    </div>
+</section>
