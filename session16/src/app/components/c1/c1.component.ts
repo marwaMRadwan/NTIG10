@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class C1Component implements OnInit {
   x:number = 5
-  constructor() { }
 
+  constructor() { }
   ngOnInit(): void {
   }
+
   add(){
     this.x++
   }
+
 }

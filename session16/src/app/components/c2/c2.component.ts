@@ -7,9 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class C2Component implements OnInit {
   @Input() c:number = 0
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  z = 9
+  constructor() { console.log('constructor')}
+  ngOnInit(): void { console.log('on init') }
+  ngOnChanges(){console.log('on changes')}
+  ngDoCheck(){console.log('do check')}
+  ngAfterContentInit(){console.log('after content init')}
+  ngAfterContentChecked(){console.log('after content checked')}
+  ngAfterViewInit(){console.log('after view init')}
+  ngAfterViewChecked(){console.log('after view checked')}
+  ngOnDestroy(){console.log('destroy')}
 
 }
