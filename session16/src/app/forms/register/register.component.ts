@@ -12,6 +12,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   onRegister(data:any){
-    console.log(data.value)
+    
+    if(data.valid){
+      console.log(data.value)
+    }
   }
 }

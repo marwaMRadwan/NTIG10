@@ -1,10 +1,27 @@
 <p>register works!</p>
 <!-- name, email, password, role=>1, gender=>0,1, dateOfBirth-->
 <section class="my-4 container">
+    <div class="alert alert-primary">
+        {{registerForm.value | json}}<br>
+        is Valid {{registerForm.valid}}<br>
+        is inValid {{registerForm.invalid}}<br>
+        submitted: {{registerForm.submitted}}<br>
+        touched: {{registerForm.touched}}
+    </div>
     <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
         <div class="mb-3">
             <label>name</label>
-            <input class="form-control" placeholder="name" name="name" ngModel>
+            <input class="form-control" placeholder="name" name="name" 
+            required minlength="5" maxlength="15" email
+            ngModel #name="ngModel">
+            <div 
+            class="alert alert-danger" 
+            *ngIf="name.invalid && (name.touched||registerForm.submitted||name.dirty)">
+                <p *ngIf="name.errors?.required">required</p>
+                <p *ngIf="name.errors?.minlength">min len</p>
+                <p *ngIf="name.errors?.maxlength">max len</p>
+                <p *ngIf="name.errors?.email">email</p>
+            </div>
         </div>
         <div class="mb-3">
             <label>email</label>
@@ -27,7 +44,8 @@
             <input class="form-control" placeholder="date of birth" ngModel name="dateOfBirth">
         </div>
         <div class="mb-3">
-            <button class="btn btn-primary">register</button>
+            <button class="btn btn-primary" >register</button>
+            <!-- [disabled]="registerForm.invalid" -->
         </div>
         
     </form>
