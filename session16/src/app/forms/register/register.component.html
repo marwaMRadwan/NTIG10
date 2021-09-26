@@ -1,0 +1,34 @@
+<p>register works!</p>
+<!-- name, email, password, role=>1, gender=>0,1, dateOfBirth-->
+<section class="my-4 container">
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+        <div class="mb-3">
+            <label>name</label>
+            <input class="form-control" placeholder="name" name="name" ngModel>
+        </div>
+        <div class="mb-3">
+            <label>email</label>
+            <input class="form-control" placeholder="email" name="email" ngModel>
+        </div>
+        <div class="mb-3">
+            <label>password</label>
+            <input class="form-control" placeholder="password" type="password" name="password" ngModel>
+        </div>
+        <div class="mb-3">
+            <label>gender</label>
+            <select class="form-control" ngModel name="gender">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>date of birth</label>
+            <input class="form-control" placeholder="date of birth" ngModel name="dateOfBirth">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">register</button>
+        </div>
+        
+    </form>
+</section>
