@@ -12,28 +12,34 @@
         <div class="mb-3">
             <label>name</label>
             <input class="form-control" placeholder="name" name="name" 
-            required minlength="5" maxlength="15" email
-            ngModel #name="ngModel">
+            required minlength="5" maxlength="15" 
+            [(ngModel)]="userData.name" #name="ngModel">
             <div 
             class="alert alert-danger" 
             *ngIf="name.invalid && (name.touched||registerForm.submitted||name.dirty)">
                 <p *ngIf="name.errors?.required">required</p>
                 <p *ngIf="name.errors?.minlength">min len</p>
                 <p *ngIf="name.errors?.maxlength">max len</p>
-                <p *ngIf="name.errors?.email">email</p>
             </div>
         </div>
         <div class="mb-3">
             <label>email</label>
-            <input class="form-control" placeholder="email" name="email" ngModel>
+            <input class="form-control" placeholder="email" name="email" required email [(ngModel)]="userData.email" #email="ngModel">
+            <div
+            class="alert alert-danger" 
+            *ngIf="email.invalid && (email.touched||registerForm.submitted||email.dirty)">
+                <p *ngIf="email.errors?.required">required</p>
+                <p *ngIf="email.errors?.email">email</p>
+            </div>
+
         </div>
         <div class="mb-3">
             <label>password</label>
-            <input class="form-control" placeholder="password" type="password" name="password" ngModel>
+            <input class="form-control" placeholder="password" type="password" name="password" ngModel [(ngModel)]="userData.password">
         </div>
         <div class="mb-3">
             <label>gender</label>
-            <select class="form-control" ngModel name="gender">
+            <select class="form-control" ngModel name="gender" [(ngModel)]="userData.gender">
                 <option value="0">Male</option>
                 <option value="1">Female</option>
             </select>
@@ -41,7 +47,7 @@
 
         <div class="mb-3">
             <label>date of birth</label>
-            <input class="form-control" placeholder="date of birth" ngModel name="dateOfBirth">
+            <input class="form-control" type="date" placeholder="date of birth" ngModel name="dateOfBirth" [(ngModel)]="userData.dateOfBirth">
         </div>
         <div class="mb-3">
             <button class="btn btn-primary" >register</button>
