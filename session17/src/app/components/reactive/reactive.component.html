@@ -1,0 +1,35 @@
+{{registerForm.valid}}<br>
+{{registerForm.invalid}}<br>
+{{registerForm.value|json}}<br>
+
+<form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+    <div>
+        <label>name</label>
+        <input name="name" formControlName="name">
+        <div *ngIf="name?.invalid">
+            invalid
+        </div>
+    </div>
+    <div>
+        <label>email</label>
+        <input name="email" formControlName="email">
+    </div>
+    <div>
+        <label>passwrod</label>
+        <input name="passwrod" formControlName="password">
+    </div>
+    <div>
+        <label>date of birth</label>
+        <input name="dateOfBirth" type="date" formControlName="dateOfBirth">
+    </div>
+    <div>
+        <label>gender</label>
+        <select name="gender" formControlName="gender">
+            <option value="0">male</option>
+            <option value="1">female</option>
+        </select>
+    </div>
+    <div>
+        <button>register</button>
+    </div>
+</form>
