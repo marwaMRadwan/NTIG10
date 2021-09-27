@@ -7,7 +7,9 @@
         <label>name</label>
         <input name="name" formControlName="name">
         <div *ngIf="name?.invalid">
-            invalid
+            <li *ngIf="name?.errors?.required">
+                required
+            </li>
         </div>
     </div>
     <div>
