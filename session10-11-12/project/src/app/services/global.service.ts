@@ -5,6 +5,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalService {
+  public myRoutes = [
+    {path:"", key:"home"},
+    {path:"user/register", key:"Register", isAuth:false},
+    {path:"user/login", key:"login", isAuth:false}]
+    public myLoggedRoutes=[
+      {path:"", key:"home"},
+      {path:"user/addAddr", key:"add address",isAuth:true },
+    {path:"user/profile",key:"Profile", isAuth:true},
+    {path:"post/addPost", key:"add post",isAuth:true},
+    {path:"post/editPost", key:"Edit post",isAuth:true},
+    {path:"post/myPosts", key:"Show my posts", isAuth:true}
+  ]
+
+  public isLoggedIn = localStorage.getItem("TodoAppToken")? true:false
+  public navMenu = localStorage.getItem("TodoAppToken")? this.myLoggedRoutes:this.myRoutes
   commonUrl = "http://localhost:3000/"
   constructor(private _http: HttpClient) { }
   register(data:any):Observable<any>{
