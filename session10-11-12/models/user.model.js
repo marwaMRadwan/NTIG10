@@ -79,6 +79,9 @@ userSchema.methods.toJSON = function(){
 
 // encrypt password
 userSchema.pre('save', async function(){
+//     x = await User.findOne().sort({_id:-1})
+// if(!x) user.newId=100
+// else user.newId = x.newId+1
     const user = this
     if(user.isModified('password')){
         user.password = await bcrypt.hash(user.password, 12 )
