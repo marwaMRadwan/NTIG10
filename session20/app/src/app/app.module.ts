@@ -15,6 +15,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { UserInterceptor } from './provider/user.interceptor';
+import { Err404Component } from './pages/err404/err404.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserInterceptor } from './provider/user.interceptor';
     SingletaskComponent,
     NavComponent,
     FooterComponent,
-    HomepageComponent
+    HomepageComponent,
+    Err404Component
   ],
   imports: [
     BrowserModule,
