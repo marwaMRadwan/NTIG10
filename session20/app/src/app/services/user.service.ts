@@ -33,4 +33,9 @@ public isLogin = localStorage.getItem('tasksToken')?true:false
     return this._http.delete(`${this.commonURL}users`)
   }
 
+  uploadImg(file:any):Observable<any>{
+    const formData = new FormData()
+    formData.append('img', file, file.name)
+    return this._http.post(`${this.commonURL}uploadImg`, formData)
+  }
 }

@@ -1,1 +1,10 @@
-<p>homepage works!</p>
+<section class='container my-5'>
+    <form (ngSubmit)="upimg()">
+        <div class="mb-3">
+            <input type="file" class="form-control" (change)="onChangeFile($event)">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">upload</button>
+        </div>
+    </form>
+</section>
