@@ -1,0 +1,29 @@
+<section class="my-4 container" >
+    <div class="alert alert-primary" *ngIf='msg!=""'>
+        {{this.msg}}
+    </div>
+    <form [formGroup]= "editForm" (ngSubmit)="edit()">
+        <div class="mb-3">
+            <input formControlName="name" class="form-control" placeholder="your name">
+            <div *ngIf="name?.invalid" class="alert alert-danger">
+                <p *ngIf="name?.errors?.required"> name is required</p>
+                <p *ngIf="name?.errors?.minLength"> name minmum length is 3</p>
+                <p *ngIf="name?.errors?.max Length"> name maximum length is 20</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input formControlName="email" class="form-control" placeholder="your email">
+            <div *ngIf="email?.invalid" class="alert alert-danger">
+                <p *ngIf="email?.errors?.required"> email is required</p>
+                <p *ngIf="email?.errors?.email"> email invalid format</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input formControlName="age" class="form-control" placeholder="your age" type="number">
+        
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-success">register</button>
+            </div>
+    </form>
+</section>

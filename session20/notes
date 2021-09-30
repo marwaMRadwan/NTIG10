@@ -1,0 +1,47 @@
+ecommerce
+    - users ==> admin, user => wishlist, cart
+    - products => categories
+    - orders
+slider => image link, title, descr
+user => name, email, age, password
+    
+categories => name
+
+brand => name
+
+products => name, category[], title, brand
+
+orders 
+
+general without auth:
+all categories, all pro, single pro, all product by category, show all brands, show pro by brand
+latest 10 cat , best seller
+controller Auth:
+=> register, login , edit profile, edit password, forget password, show profile
+
+user with auth=> view my wishlist, view my cart, add to cart, add to wish, remove from cart, remove from wishlist, proceed order, view all order by me, view my single order
+
+admin auth =>
+crud category, crud brands, crud products , view all users , view all orders , complete order , u[pdate order stauts, crud slider, crud best seller
+
+
+
+navbar, footer
+home => slider, latest 10 category, best seller
+products => show all, show all cats, show all brand, show single cat, show single brand, show single pro
+
+button for wish list, cart
+
+user profile=> login, register, ......, view wish, view cart
+inside cart => proceed order
+
+
+
+
+
+
+
+
+
+
+

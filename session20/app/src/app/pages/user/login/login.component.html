@@ -1,0 +1,26 @@
+<section class="my-4 container" >
+    <div class="alert alert-primary" *ngIf='msg!=""'>
+        {{this.msg}}
+    </div>
+    <form [formGroup]= "loginForm" (ngSubmit)="login()">
+       
+        <div class="mb-3">
+            <input formControlName="email" class="form-control" placeholder="your email">
+            <div *ngIf="email?.invalid" class="alert alert-danger">
+                <p *ngIf="email?.errors?.required"> email is required</p>
+                <p *ngIf="email?.errors?.email"> email invalid format</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input formControlName="password" class="form-control" placeholder="your passwor" type="password">
+            <div *ngIf="password?.invalid" class="alert alert-danger">
+                <p *ngIf="password?.errors?.required"> password is required</p>
+                <p *ngIf="password?.errors?.minLength"> password minmum length is 3</p>
+                <p *ngIf="password?.errors?.max Length"> password maximum length is 20</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-success">register</button>
+            </div>
+    </form>
+</section>

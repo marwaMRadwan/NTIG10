@@ -1,0 +1,15 @@
+<section class="my-4 container" >
+    <form [formGroup]= "taskForm" (ngSubmit)="addTask()">
+       
+        <div class="mb-3">
+            <input formControlName="description" class="form-control" placeholder="your description">
+            <div *ngIf="description?.invalid" class="alert alert-danger">
+                <p *ngIf="description?.errors?.required"> description is required</p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-success">add task</button>
+            </div>
+    </form>
+</section>
